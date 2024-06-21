@@ -1,0 +1,11 @@
+version: "3"
+services:
+  crypto:
+    container_name: crypto
+    build: ./
+    ports:
+      - "8080:8080"
+  redis:
+    image: redis/redis-stack-server:latest
+    ports:
+      - "6379:6379"

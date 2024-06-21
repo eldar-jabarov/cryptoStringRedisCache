@@ -1,0 +1,78 @@
+{
+  "consumes": [
+    "application/json",
+    "multipart/form-data"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Documentation of your project API.",
+    "title": "meta.",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "paths": {
+    "/api/crypto": {
+      "post": {
+        "description": "Шифрует введеную строку по алгоритмам MD5 и SHA256",
+        "tags": [
+          "crypto"
+        ],
+        "operationId": "Request",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/Response"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Request": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "x-go-name": "Query",
+          "example": "любая строка"
+        }
+      },
+      "x-go-package": "cryptoStringRedisCache/internal/infrastructure/dto"
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "MD5": {
+          "type": "string"
+        },
+        "SHA256": {
+          "type": "string"
+        }
+      },
+      "x-go-package": "cryptoStringRedisCache/internal/infrastructure/dto"
+    }
+  },
+  "responses": {
+    "Response": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/Response"
+      }
+    }
+  }
+}
