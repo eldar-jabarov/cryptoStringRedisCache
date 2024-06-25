@@ -16,8 +16,7 @@ import (
 )
 
 type App struct {
-	wait          sync.WaitGroup
-	cryptoService service.Crypter
+	wait sync.WaitGroup
 }
 
 func New() *App {
